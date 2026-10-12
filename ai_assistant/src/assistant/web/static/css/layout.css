@@ -1,0 +1,63 @@
+.app { display: flex; height: 100vh; }
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--bg-alt);
+  border-right: 1px solid var(--border);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.session-list { display: flex; flex-direction: column; gap: 4px; }
+
+.session-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+}
+.session-item.active, .session-item:hover { background: var(--border); }
+.session-open {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 8px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.session-delete {
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.title { font-size: 1rem; font-weight: 600; margin: 0; }
+
+.sidebar-hidden .sidebar { display: none; }
+
+@media (max-width: 720px) {
+  .sidebar { position: fixed; inset: 0 auto 0 0; z-index: 10; }
+  .app:not(.sidebar-open) .sidebar { display: none; }
+}
