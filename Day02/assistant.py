@@ -43,12 +43,20 @@ while True:
 
     ai_reply = response.choices[0].message.content
     print("\n: ", ai_reply)
-
+    #Save AI Reply:--
     meassages.append(
         {
             "role": "assistant",
             "content": ai_reply
         }
     )
+    #debugging
+    print("\n-------------------Debugging Conversation History-------------------")
+    for message in meassages:
+        # print(message["role"].title(), ":", message["content"])
+        # print(message)
+        print(f"{message['role'].title()}: {message['content']}")
+
+    print("-----------------------------------------------------------")
     
 
